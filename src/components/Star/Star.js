@@ -4,22 +4,29 @@ import React, { Component } from 'react';
 class Star extends Component {
     constructor() {
         super();
-        this.state = { name: '', role: '' };
-    }
+        this.state = { 
+            star: {
+                name: '', 
+                role: '' }
+            }     
+    };
 
     handleNameChange = (event) => {
         console.log(event.target.value);
-        this.setState({ name: event.target.value });
+        let role = this.state.star.role; 
+        this.setState({star: {name: event.target.value, role}}); 
+        // this.setState({ name: event.target.value });
     }
 
     handleRoleChange = (event) => {
         console.log(event.target.value);
-        this.setState({ role: event.target.value });
+        let name = this.state.star.name; 
+        this.setState({star: {role: event.target.value, name}}); 
     }
 
     handleClick = (event) => {
     event.preventDefault();
-       let name = this.state.name; 
+       let name = this.state.star; 
        console.log(name); 
     }
 
@@ -33,7 +40,7 @@ class Star extends Component {
                     <button onClick={this.handleClick}>Submit</button>
                 </form>
                 <br/><br/>
-                {this.state.name} is famous for {this.state.role}.
+                {this.state.star.name} is famous for {this.state.star.role}.
             </div>
 
         );
