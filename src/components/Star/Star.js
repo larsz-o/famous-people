@@ -17,6 +17,12 @@ class Star extends Component {
         this.setState({ role: event.target.value });
     }
 
+    handleClick = (event) => {
+    event.preventDefault();
+       let name = this.state.name; 
+       console.log(name); 
+    }
+
 
     render() {
         return (
@@ -24,7 +30,7 @@ class Star extends Component {
                 <form>
                     <label>Name: </label> <input onChange={this.handleNameChange} />
                     <label>Role: </label><input onChange={this.handleRoleChange} />
-                    <button>Submit</button>
+                    <button onClick={this.handleClick}>Submit</button>
                 </form>
                 <br/><br/>
                 {this.state.name} is famous for {this.state.role}.
